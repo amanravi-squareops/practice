@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      ubuntu: 20.04
+    commands:
+      - echo "This is the install phase"
+      - apt-get update
+    
+  pre_build:
+    commands:
+      - echo "This is the pre_build phase"
+      - # Add any commands to prepare your environment here
+  build:
+    commands:
+      - echo "This is the build phase"
+      - sudo wget -c http://wordpress.org/latest.tar.gz
+      - sudo tar -xzvf latest.tar.gz
+  post_build:
+    commands:
+      - echo "This is the post_build phase"
+      - # Add any post-build commands or artifacts deployment steps here
